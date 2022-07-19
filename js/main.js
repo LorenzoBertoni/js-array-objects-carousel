@@ -87,7 +87,7 @@ let int;
 startCarousel.addEventListener('click', 
     function () {
         clearInterval(int);
-        int = setInterval(getNextImage, 1000);
+        int = setInterval(getNextImage, 5000);
     }
 );
 
@@ -100,7 +100,7 @@ stopCarousel.addEventListener('click',
 reverseCarousel.addEventListener('click', 
     function () {
         clearInterval(int);
-        int = setInterval(getPrevImage, 1000);
+        int = setInterval(getPrevImage, 5000);
     }
 );
 
