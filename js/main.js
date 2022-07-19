@@ -47,9 +47,7 @@ const description = document.querySelectorAll('.description');
 
 
 let active = 0;
-image[active].classList.add('show');
-title[active].classList.add('show');
-description[active].classList.add('show');
+addShow();
 
 const thumbnailsDom = document.querySelector('.thumbnails');
 
@@ -76,9 +74,32 @@ const thumbImg = document.querySelectorAll('.thumbnails-img');
 let index = 0;
 thumbImg[index].classList.add('active');
 
-next.addEventListener('click',
-    function () {
-        removeShow();
+next.addEventListener('click', getNextImage); //* IMMAGINE SUCCESSIVA
+
+prev.addEventListener('click', getPrevImage); //* IMMAGINE PRECEDENTE
+
+
+
+
+
+
+
+
+// *****funzioni Invocate*****
+function removeShow () {
+    image[active].classList.remove('show');
+    title[active].classList.remove('show');
+    description[active].classList.remove('show');
+}
+
+function addShow () {
+    image[active].classList.add ('show');
+    title[active].classList.add('show');
+    description[active].classList.add('show');
+}
+
+function getNextImage () {
+    removeShow();
         thumbImg[index].classList.remove('active');
         active++;
         index++;
@@ -90,12 +111,10 @@ next.addEventListener('click',
         }
         addShow();
         thumbImg[index].classList.add('active');
-    }
-);
+}
 
-prev.addEventListener('click',
-    function () {
-        removeShow();
+function getPrevImage () {
+    removeShow();
         thumbImg[index].classList.remove('active');
         active--;
         index--;
@@ -107,25 +126,4 @@ prev.addEventListener('click',
         }
         addShow();
         thumbImg[index].classList.add('active');
-    }
-);
-
-
-
-
-
-
-
-
-
-function removeShow () {
-    image[active].classList.remove('show');
-    title[active].classList.remove('show');
-    description[active].classList.remove('show');
-}
-
-function addShow () {
-    image[active].classList.add ('show');
-    title[active].classList.add('show');
-    description[active].classList.add('show');
 }
