@@ -109,3 +109,19 @@ body {
     outline: 5px solid lightgreen;
     outline-offset: -.3rem;
 }
+
+.btn-wrapper {
+    width: 100%;
+    margin-top: 1.5rem;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+button {
+    padding: .5rem 1rem;
+    background-color: black;
+    color: white;
+    font-size: 20px;
+    border-radius: .5rem;
+    cursor: pointer;
+}

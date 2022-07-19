@@ -78,7 +78,22 @@ next.addEventListener('click', getNextImage); //* IMMAGINE SUCCESSIVA
 
 prev.addEventListener('click', getPrevImage); //* IMMAGINE PRECEDENTE
 
-setInterval(getNextImage, 5000);
+
+
+const startCarousel = document.getElementById('start-carousel');
+const stopCarousel = document.getElementById('stop-carousel');
+let int;
+startCarousel.addEventListener('click', 
+    function () {
+        int = setInterval(getNextImage, 5000);
+    }
+);
+
+stopCarousel.addEventListener('click', 
+    function () {
+        clearInterval(int);
+    }
+);
 
 
 
