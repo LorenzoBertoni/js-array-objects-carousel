@@ -78,7 +78,7 @@ next.addEventListener('click', getNextImage); //* IMMAGINE SUCCESSIVA
 
 prev.addEventListener('click', getPrevImage); //* IMMAGINE PRECEDENTE
 
-
+setInterval(getNextImage, 5000);
 
 
 
