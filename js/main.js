@@ -57,6 +57,16 @@ for (let c = 0; c < images.length; c++){
     let thumb = document.createElement('img');
     thumb.src = images[c].url;
     thumb.classList.add('thumbnails-img');
+    thumb.addEventListener('click', 
+        function () {
+            removeShow();
+            active = c;
+            addShow();
+            thumbImg[index].classList.remove('active');
+            index = c;
+            thumbImg[index].classList.add('active');
+        }
+    );
     thumbnailsDom.append(thumb);
 }
 
@@ -68,9 +78,7 @@ thumbImg[index].classList.add('active');
 
 next.addEventListener('click',
     function () {
-        image[active].classList.remove('show');
-        title[active].classList.remove('show');
-        description[active].classList.remove('show');
+        removeShow();
         thumbImg[index].classList.remove('active');
         active++;
         index++;
@@ -80,18 +88,14 @@ next.addEventListener('click',
         if (index == images.length) { 
             index = 0;
         }
-        image[active].classList.add ('show');
-        title[active].classList.add('show');
-        description[active].classList.add('show');
+        addShow();
         thumbImg[index].classList.add('active');
     }
 );
 
 prev.addEventListener('click',
     function () {
-        image[active].classList.remove('show');
-        title[active].classList.remove('show');
-        description[active].classList.remove('show');
+        removeShow();
         thumbImg[index].classList.remove('active');
         active--;
         index--;
@@ -101,9 +105,27 @@ prev.addEventListener('click',
         if (index == images.length - 6) {
             index = 4;
         }
-        image[active].classList.add('show');
-        title[active].classList.add('show');
-        description[active].classList.add('show');
+        addShow();
         thumbImg[index].classList.add('active');
     }
 );
+
+
+
+
+
+
+
+
+
+function removeShow () {
+    image[active].classList.remove('show');
+    title[active].classList.remove('show');
+    description[active].classList.remove('show');
+}
+
+function addShow () {
+    image[active].classList.add ('show');
+    title[active].classList.add('show');
+    description[active].classList.add('show');
+}
