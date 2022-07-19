@@ -70,7 +70,6 @@ for (let c = 0; c < images.length; c++){
 
 
 const thumbImg = document.querySelectorAll('.thumbnails-img');
-
 let index = 0;
 thumbImg[index].classList.add('active');
 
@@ -82,16 +81,26 @@ prev.addEventListener('click', getPrevImage); //* IMMAGINE PRECEDENTE
 
 const startCarousel = document.getElementById('start-carousel');
 const stopCarousel = document.getElementById('stop-carousel');
+const reverseCarousel = document.getElementById('reverse-carousel');
 let int;
+
 startCarousel.addEventListener('click', 
     function () {
-        int = setInterval(getNextImage, 5000);
+        clearInterval(int);
+        int = setInterval(getNextImage, 1000);
     }
 );
 
 stopCarousel.addEventListener('click', 
     function () {
         clearInterval(int);
+    }
+);
+
+reverseCarousel.addEventListener('click', 
+    function () {
+        clearInterval(int);
+        int = setInterval(getPrevImage, 1000);
     }
 );
 

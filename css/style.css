@@ -103,6 +103,7 @@ body {
 .thumbnails-img {
     width: calc(100% / 5);
     height: 100%;
+    cursor: pointer;
 }
 
 .active {
